@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body style="width:400px; background-color: #DEE1DD;">
+
+<div class="row">
+    <div class="col-sm-12" style="color: #2F575D">
+       <h4> Find regular expressions in HTML source </h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <label for="regex" style="color: #2F575D"> Regex </label>
+        <input id="regex" placeholder="Regex use: \d+ insted of /\d+/g" type="regex" class="form-control" name="regex: " style="width: 100%" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <center>
+            <button id="execute" style="background-color: #658B6E; width: 150px" type="submit" class="btn btn-primary btn-md">Find</button>
+            <script src="/js/popup.js"></script>
+        </center>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <textarea id='message' style="width: 400px; height: 900px;" placeholder="Results"> </textarea>
+    </div>
+</div>
+
+</body>
+</html>
