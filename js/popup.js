@@ -1,9 +1,10 @@
+var result;
 chrome.extension.onMessage.addListener(function(request, sender) {
         if(request.action == "getSource"){
             var source = request.source;
             var regex = new RegExp(document.getElementById("regex").value,"g");
             var matchArray = source.match(regex,"g");
-            message.innerText = matchArray.join(" \n");
+            result = message.innerText = matchArray.join("\n \n");
         }
 });
 
@@ -22,6 +23,4 @@ function ifPageLoaded(){
 };
 
 document.getElementById('execute').addEventListener('click', ifPageLoaded);
-
-
-
+//document.getElementById('saveFile').addEventListener('click', saveFile);

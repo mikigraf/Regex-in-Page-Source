@@ -5,32 +5,54 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
-<body style="width:400px; background-color: #DEE1DD;">
-
+<body style="width:400px; height: 600px; background-color: #5e4c96;">
 <div class="row">
-    <div class="col-sm-12" style="color: #2F575D">
-       <h4> Find regular expressions in HTML source </h4>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-12">
-        <label for="regex" style="color: #2F575D"> Regex </label>
-        <input id="regex" placeholder="Regex use: \d+ insted of /\d+/g" type="regex" class="form-control" name="regex: " style="width: 100%" />
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12" style="color: #fff8f1">
         <center>
-            <button id="execute" style="background-color: #658B6E; width: 150px" type="submit" class="btn btn-primary btn-md">Find</button>
-            <script src="/js/popup.js"></script>
+            <h4> Find regular expressions in page source </h4>
         </center>
+
+    </div>
+</div>
+<div class="container" style="margin-top: 10px">
+    <div class="row">
+        <div class="col-sm-4">
+            <label for="regex" style="color: #FFFFFF"> Regex </label>
+        </div>
+        <div class="col-sm-8">
+            <input id="regex" placeholder="Regex use: \d+ insted of /\d+/g" type="regex" class="form-control" name="regex: " style="width: 100%" />
+        </div>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-12">
-        <textarea id='message' style="width: 400px; height: 900px;" placeholder="Results"> </textarea>
+<div class="container" style="margin-top: 10px">
+    <div class="row">
+        <div class="col-sm-4">
+            <center>
+                <button id="execute" style="background-color: #3d2f68; width: 150px" type="submit" class="btn btn-primary btn-md">Find</button>
+                <script src="/js/popup.js"></script>
+            </center>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 5px">
+    <div class="row">
+        <div class="col-sm-12">
+            <label for="message" style="color: #FFFFFF"> Results </label>
+            <textarea readonly id='message' class="form-control" rows="3" style="width: 370px; height: 360px; background-color: #FFFFFF" > </textarea>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 10px">
+    <div class="row">
+        <div class="col-sm-4">
+            <center>
+                <button id="saveFile" style="background-color: #3d2f68; width: 150px" type="submit" class="btn btn-primary btn-md">Save as...</button>
+                <script src="/js/popup.js"></script>
+            </center>
+        </div>
     </div>
 </div>
 
