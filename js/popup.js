@@ -4,7 +4,7 @@ chrome.extension.onMessage.addListener(function(request, sender) {
             var source = request.source;
             var regex = new RegExp(document.getElementById("regex").value,"g");
             var matchArray = source.match(regex,"g");
-            result = message.innerText = matchArray.join("\n \n");
+            message.innerText = result = matchArray.join("\n \n");
         }
 });
 
@@ -12,7 +12,6 @@ function ifPageLoaded(){
     var regexInput = document.getElementById("regex").value;
     var regex = new RegExp(regexInput);
     var message = document.querySelector('#message');
-    //message.innerText = regex;
     chrome.tabs.executeScript(null, {
         file: "/js/miner.js"
     }, function(){
@@ -23,4 +22,3 @@ function ifPageLoaded(){
 };
 
 document.getElementById('execute').addEventListener('click', ifPageLoaded);
-//document.getElementById('saveFile').addEventListener('click', saveFile);

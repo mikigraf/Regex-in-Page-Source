@@ -1,9 +1,9 @@
 {
   "manifest_version" : 2,
 
-  "name" : "HTML Regex Finder",
-  "version" : "0.5",
-  "description" : "Find regular expressions in the HTML source code. ",
+  "name" : "Regex in page source",
+  "version" : "0.0.0.3",
+  "description" : "Find regular expressions in the page source. ",
 
   "browser_action" : {
     "default_icon" : "icon.png",
