@@ -1,7 +1,13 @@
 var result;
 var message = document.querySelector('#message');
-
+var url;
 chrome.extension.onMessage.addListener(function(request, sender) {
+    chrome.tabs.getSelected(null,function(tab) {
+        url = tab.url;
+    });
+    //todo params
+    //var notification = chrome.notifications.create(//params);
+
     var source = request.source;
     var regex = new RegExp(document.getElementById("regex").value,"g");
     var matchArray = source.match(regex,"g");
@@ -9,11 +15,18 @@ chrome.extension.onMessage.addListener(function(request, sender) {
 
     if(request.action == "getSource"){
         localStorage.removeItem("results");
+        //todo update
+    //    chrome.notifications.update();
         message.innerText = result = matchArray.join("\n \n");
+        if(url != null){
+            //show notification
+        }
         localStorage.setItem("results", result);
     }
     if(request.action == "append"){
         localStorage.removeItem("results");
+        //todo update
+     //   chrome.notifications.update();
         result = message.innerText + (matchArray.join("\n \n"));
         localStorage.setItem("results", result);
     }
