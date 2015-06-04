@@ -22,16 +22,19 @@ chrome.extension.onMessage.addListener(function(request, sender) {
     }
     if(request.action == "append"){
         localStorage.removeItem("results");
-        //todo update
-     //   chrome.notifications.update();
-        result = message.innerText + (matchArray.join("\n \n"));
+        message.innerText = result = matchArray.join("\n \n");
+        //logRegex(regexAsString);
+        message.innerText = JSON.stringify(connectToApi(regex,regex));
         localStorage.setItem("results", result);
     }
-    if(request.action == "returnLast"){
-        message.innerText = "last Item";
+    if(request.action == "lastResultst"){
+        localStorage.removeItem("results");
+        message.innerText = result = matchArray.join("\n \n");
+        //logRegex(regexAsString);
+        message.innerText = JSON.stringify(connectToApi(regex,regex));
+        localStorage.setItem("results", result);
     }
-    if(request.action == "clear"){
-        message.innerText = source;
+    if(request.action == "clearButton"){
         localStorage.removeItem("results");
     }
 
@@ -63,55 +66,11 @@ function ifPageLoaded(){
     });
 };
 
-function append(){
-    var regexInput = document.getElementById("regex").value;
-    var regex = new RegExp(regexInput);
-    //var message = document.querySelector('#message');
-    chrome.tabs.executeScript(null, {
-        file: "/js/append.js"
-    }, function(){
-        if(chrome.extension.lastError){
-            message.innerText = "Error \n" + chrome.extension.lastError.message;
-        }
-    });
-};
-
-function lastResults(){
-    chrom.tabs.executeScript(null, {
-        file: "/js/lastResults.js"}, function(){
-        if(chrome.extension.lastError) {
-            message.innerText = "Error \n" + chrome.extension.lastError.message;
-        }
-    })
-
-};
-
-function clearField(){
-    chrom.tabs.executeScript(null, {
-        file: "/js/clear.js"}, function(){
-        if(chrome.extension.lastError) {
-            message.innerText = "Error \n" + chrome.extension.lastError.message;
-        }
-    })
-};
-
-function creationCallback(notID) {
-    console.log("Succesfully created " + notID + " notification");
-    if (document.getElementById("clear").checked) {
-        setTimeout(function() {
-            chrome.notifications.clear(notID, function(wasCleared) {
-                console.log("Notification " + notID + " cleared: " + wasCleared);
-            });
-        }, 3000);
-    }
-};
-
 
 document.getElementById('regex').value = localStorage.getItem('regex');
 document.getElementById('execute').addEventListener('click', ifPageLoaded);
-document.getElementById('append').addEventListener('click', append);
-document.getElementById('last').addEventListener('click', lastResults);
-document.getElementById('clearButton').addEventListener('click', clearField);
-
+document.getElementById('append').addEventListener('click', ifPageLoaded);
+document.getElementById('lastResults').addEventListener('click', ifPageLoaded);
+document.getElementById('clearButton').addEventListener('click', ifPageLoaded);
 
 
