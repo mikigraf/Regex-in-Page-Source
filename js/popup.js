@@ -16,8 +16,6 @@ chrome.extension.onMessage.addListener(function(request, sender) {
     if(request.action == "getSource"){
         localStorage.removeItem("results");
         message.innerText = result = matchArray.join("\n \n");
-        //logRegex(regexAsString);
-        message.innerText = JSON.stringify(connectToApi(regex,regex));
         localStorage.setItem("results", result);
     }
     if(request.action == "append"){
@@ -39,19 +37,6 @@ chrome.extension.onMessage.addListener(function(request, sender) {
     }
 
 });
-
-function connectToApi(params, regex){
-    var xhr = new XMLHttpRequest();
-    var resp;
-    xhr.open("POST", "http://127.0.0.1:8083/?params=" + params + "?regex=" + regex, false);
-    xhr.onreadystatechange = function(){
-        if(xhr.readyState == 4){
-            resp = xhr.responseText;
-        }
-    };
-    xhr.send(params);
-    return resp;
-}
 
 function ifPageLoaded(){
     var regexInput = document.getElementById("regex").value;
